@@ -26,25 +26,15 @@ System.register(['angular2/core', './courses.component', './authors.components']
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.someTitle = "this is some title";
-                    this.twoWayBinding = "hello there";
-                    this.alsoTwoWayBinding = "Now I'm leaving...";
                     this.isStar = true;
                 }
-                AppComponent.prototype.onClickFunction = function ($event) {
-                    $event.stopPropagation();
-                    console.log("the button has been clicked!", $event);
-                };
-                AppComponent.prototype.onDivClick = function () {
-                    console.log("was handled by div");
-                };
                 AppComponent.prototype.changeStar = function () {
                     this.isStar = !this.isStar;
                 };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "<h1>My First Angular 2 App</h1>\n        <courses></courses>\n        <authors></authors>\n        <div (click)=\"onDivClick()\">\n            <button on-click=\"onClickFunction($event)\">Click Me!</button>\n        </div>\n        <input type=\"text\" bind-value=\"someTitle\" on-input=\"someTitle = $event.target.value\"/>\n        Preview: {{someTitle}}\n        <button on-click=\"someTitle = ''\">click to clear!</button>\n        <h4>This is an example of 2 way binding</h4>\n        <input type=\"text\" [(ngModel)]=\"twoWayBinding\"/>\n        <input type=\"text\" bindon-ngModel=\"alsoTwoWayBinding\" />\n\n        <span on-click=\"changeStar()\" class=\"glyphicon\" [class.glyphicon-star]=\"isStar\" [class.glyphicon-star-empty]=\"!isStar\"></span>\n\n        ",
+                        template: "<h1>My First Angular 2 App</h1>\n        <courses></courses>\n        <authors></authors>\n        \n\n        <span on-click=\"changeStar()\" class=\"glyphicon\" [class.glyphicon-star]=\"isStar\" [class.glyphicon-star-empty]=\"!isStar\"></span>\n\n        ",
                         directives: [courses_component_1.CoursesComponent, authors_components_1.AuthorsComponent]
                     }), 
                     __metadata('design:paramtypes', [])
