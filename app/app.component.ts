@@ -1,26 +1,27 @@
 import {Component} from 'angular2/core';
 import {CoursesComponent} from './courses.component';
-import {AuthorsComponent} from './authors.components';
+import {AuthorsComponent} from './authors.component';
+import {FavoritesComponent} from './favorites.component'
+import {HeartComponent} from './hearts.component'
+import {VotesComponent} from './votes.component'
 
 @Component({
     selector: 'my-app',
     template: `<h1>My First Angular 2 App</h1>
-        <courses></courses>
-        <authors></authors>
-        
-
-        <span on-click="changeStar()" class="glyphicon" [class.glyphicon-star]="isStar" [class.glyphicon-star-empty]="!isStar"></span>
-
+        <span class="glyphicon glyphicon-star"></span>
+        <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
+        <heart></heart>
+        <vote></vote>
         `,
-    directives: [CoursesComponent, AuthorsComponent]
+    directives: [CoursesComponent, AuthorsComponent, FavoritesComponent, HeartComponent, VotesComponent]
 })
 export class AppComponent {
-    
-    isStar = true;
-
-
-    changeStar(){
-        this.isStar = !this.isStar;
+    post = {
+        title: "The Title",
+        isFavorite: true
     }
 
+    onFavoriteChange($event){
+        console.log($event)
+    }
  }

@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './authors.components'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.component', './authors.component', './favorites.component', './hearts.component', './votes.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.component', './authors.components']
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, authors_components_1;
+    var core_1, courses_component_1, authors_component_1, favorites_component_1, hearts_component_1, votes_component_1;
     var AppComponent;
     return {
         setters:[
@@ -20,22 +20,34 @@ System.register(['angular2/core', './courses.component', './authors.components']
             function (courses_component_1_1) {
                 courses_component_1 = courses_component_1_1;
             },
-            function (authors_components_1_1) {
-                authors_components_1 = authors_components_1_1;
+            function (authors_component_1_1) {
+                authors_component_1 = authors_component_1_1;
+            },
+            function (favorites_component_1_1) {
+                favorites_component_1 = favorites_component_1_1;
+            },
+            function (hearts_component_1_1) {
+                hearts_component_1 = hearts_component_1_1;
+            },
+            function (votes_component_1_1) {
+                votes_component_1 = votes_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.isStar = true;
+                    this.post = {
+                        title: "The Title",
+                        isFavorite: true
+                    };
                 }
-                AppComponent.prototype.changeStar = function () {
-                    this.isStar = !this.isStar;
+                AppComponent.prototype.onFavoriteChange = function ($event) {
+                    console.log($event);
                 };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "<h1>My First Angular 2 App</h1>\n        <courses></courses>\n        <authors></authors>\n        \n\n        <span on-click=\"changeStar()\" class=\"glyphicon\" [class.glyphicon-star]=\"isStar\" [class.glyphicon-star-empty]=\"!isStar\"></span>\n\n        ",
-                        directives: [courses_component_1.CoursesComponent, authors_components_1.AuthorsComponent]
+                        template: "<h1>My First Angular 2 App</h1>\n        <span class=\"glyphicon glyphicon-star\"></span>\n        <favorite [isFavorite]=\"post.isFavorite\" (change)=\"onFavoriteChange($event)\"></favorite>\n        <heart></heart>\n        <vote></vote>\n        ",
+                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorites_component_1.FavoritesComponent, hearts_component_1.HeartComponent, votes_component_1.VotesComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
