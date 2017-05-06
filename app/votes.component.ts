@@ -3,37 +3,37 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core'
 @Component({
     selector: 'vote',
     template: `
-    <div style="width: 20px;">
-    <span class="glyphicon glyphicon-menu-up" (click)="upvote()" ></span>
-    <h4>{{voteCount}}</h4>
-    <span class="glyphicon glyphicon-menu-down" (click)="downvote()" ></span>
+    <div class="voteWrapper" style="width: 20px;">
+    <span class="glyphicon glyphicon-menu-up" (click)="upvote()" [class.voteActive]="myVote==1"></span>
+    <h4>{{voteCount + myVote}}</h4>
+    <span class="glyphicon glyphicon-menu-down" (click)="downvote()" [class.voteActive]="myVote==-1"></span>
     </div>
-    `
+    `,
+    styles: [".voteActive {color: orange;}", ".glyphicon {cursor: pointer;}", ".voteWrapper {text-align: center;}"]
 })
 
 export class VotesComponent{
-    voteCount = 10;
-    hasVoted = false;
+    @Input() voteCount = 0;
+    @Input() myVote = 0;
+
+    @Output() theVote = new EventEmitter();
 
     upvote(){
-        if(this.hasVoted){
-            this.voteCount--
-            this.hasVoted = false;
+        if(this.myVote == 1){
+            return
         }
-        else{
-            this.voteCount++
-            this.hasVoted = true;
-        }
+
+        this.myVote++;
+        this.theVote.emit({myVote: this.myVote})
+
     }
 
     downvote(){
-        if(this.hasVoted){
-            this.voteCount++
-            this.hasVoted = false;
+        if(this.myVote == -1){
+            return
         }
-        else{
-            this.voteCount--
-            this.hasVoted = true;
-        }
+
+        this.myVote--;
+        this.theVote.emit({myVote: this.myVote})
     }
 }
