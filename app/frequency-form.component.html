@@ -1,0 +1,64 @@
+<form #frequencyForm="ngForm" (ngSubmit)="onSubmit(frequencyForm)">
+    <div class="form-group">
+        <label for="fullName">Full Name</label>    
+        <input 
+            type="text" 
+            id="fullName"
+            class="form-control"
+            #fullName="ngForm"
+            ngControl="fullName"
+            required
+            minlength="3"
+            >
+    </div>
+    <div *ngIf="fullName.touched && fullName.errors">
+        <div class="alert alert-danger" *ngIf="fullName.errors.required">
+            Full name is required
+        </div>
+        <div class="alert alert-danger" *ngIf="fullName.errors.minlength">
+            Name must be at least {{fullName.errors.minlength.requiredLength}} characters long
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            type="text" 
+            id="email"    
+            class="form-control" 
+            ngControl="email"
+            #email="ngForm"
+            required
+            minlength="4"
+            >
+    </div>
+    <div *ngIf="email.touched && email.errors">
+        <div class="alert alert-danger" *ngIf="email.errors.required">
+            Email is required
+        </div>
+        <div class="alert alert-danger" *ngIf="email.errors.minlength">
+            Email must be at least {{email.errors.minlength.requiredLength}} characters long
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <select 
+            name="frequency" 
+            id="frequency"
+            class="form-control"
+            #frequency="ngForm"
+            required
+            ngControl="frequency">
+            <option *ngFor="#hz of frequencyList">{{hz}}</option>
+        </select>
+    </div>
+    <div class="alert alert-danger" *ngIf="frequency.touched && !frequency.valid">
+        Please select an option
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!frequencyForm.valid">Submit</button>
+    
+
+
+</form>
