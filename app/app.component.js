@@ -1,4 +1,4 @@
-System.register(['angular2/core', './tweets.component', './tweets.service', './section5switch.component', './section5ngcontent.component', './zippy.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './tweets.component', './tweets.service', './contact-form.component', './frequency.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './tweets.component', './tweets.service', './s
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tweets_component_1, tweets_service_1, section5switch_component_1, section5ngcontent_component_1, zippy_component_1;
+    var core_1, tweets_component_1, tweets_service_1, contact_form_component_1, frequency_component_1;
     var AppComponent;
     return {
         setters:[
@@ -23,14 +23,11 @@ System.register(['angular2/core', './tweets.component', './tweets.service', './s
             function (tweets_service_1_1) {
                 tweets_service_1 = tweets_service_1_1;
             },
-            function (section5switch_component_1_1) {
-                section5switch_component_1 = section5switch_component_1_1;
+            function (contact_form_component_1_1) {
+                contact_form_component_1 = contact_form_component_1_1;
             },
-            function (section5ngcontent_component_1_1) {
-                section5ngcontent_component_1 = section5ngcontent_component_1_1;
-            },
-            function (zippy_component_1_1) {
-                zippy_component_1 = zippy_component_1_1;
+            function (frequency_component_1_1) {
+                frequency_component_1 = frequency_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -39,8 +36,8 @@ System.register(['angular2/core', './tweets.component', './tweets.service', './s
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <zippy>\n            <div class=\"zippy-heading\">Heading1</div>\n            <div class=\"zippy-body\">Content1</div>\n        </zippy>\n        <zippy>\n            <div class=\"zippy-heading\">Heading2</div>\n            <div class=\"zippy-body\">Content2</div>\n        </zippy>\n        ",
-                        directives: [tweets_component_1.TweetComponent, section5switch_component_1.Section5Switch, section5ngcontent_component_1.Section5Content, zippy_component_1.ZippyComponent],
+                        template: "\n        <frequency></frequency>\n        ",
+                        directives: [tweets_component_1.TweetComponent, contact_form_component_1.ContactFormComponent, frequency_component_1.FrequencyComponent],
                         providers: [tweets_service_1.TweetService]
                     }), 
                     __metadata('design:paramtypes', [])
