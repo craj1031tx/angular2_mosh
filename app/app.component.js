@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './authors.component', './favorites.component', './hearts.component', './votes.component', './tweets.component', './tweets.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './tweets.component', './tweets.service', './section5switch.component', './section5ngcontent.component', './zippy.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,62 +10,40 @@ System.register(['angular2/core', './courses.component', './authors.component', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, authors_component_1, favorites_component_1, hearts_component_1, votes_component_1, tweets_component_1, tweets_service_1;
+    var core_1, tweets_component_1, tweets_service_1, section5switch_component_1, section5ngcontent_component_1, zippy_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (courses_component_1_1) {
-                courses_component_1 = courses_component_1_1;
-            },
-            function (authors_component_1_1) {
-                authors_component_1 = authors_component_1_1;
-            },
-            function (favorites_component_1_1) {
-                favorites_component_1 = favorites_component_1_1;
-            },
-            function (hearts_component_1_1) {
-                hearts_component_1 = hearts_component_1_1;
-            },
-            function (votes_component_1_1) {
-                votes_component_1 = votes_component_1_1;
-            },
             function (tweets_component_1_1) {
                 tweets_component_1 = tweets_component_1_1;
             },
             function (tweets_service_1_1) {
                 tweets_service_1 = tweets_service_1_1;
+            },
+            function (section5switch_component_1_1) {
+                section5switch_component_1 = section5switch_component_1_1;
+            },
+            function (section5ngcontent_component_1_1) {
+                section5ngcontent_component_1 = section5ngcontent_component_1_1;
+            },
+            function (zippy_component_1_1) {
+                zippy_component_1 = zippy_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(tweetService) {
-                    this.listOfTweets = [];
-                    this.post = {
-                        title: "The Title",
-                        isFavorite: true
-                    };
-                    this.serverData = {
-                        voteCount: 10,
-                        myVote: 0
-                    };
-                    this.listOfTweets = tweetService.getTweets();
+                function AppComponent() {
                 }
-                AppComponent.prototype.onFavoriteChange = function ($event) {
-                    console.log($event);
-                };
-                AppComponent.prototype.userVotes = function ($event) {
-                    console.log($event);
-                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "<h1>My First Angular 2 App</h1>\n        <span class=\"glyphicon glyphicon-star\"></span>\n        <favorite [isFavorite]=\"post.isFavorite\" (change)=\"onFavoriteChange($event)\"></favorite>\n        <heart></heart>\n        <vote [voteCount]=\"serverData.voteCount\" [myVote]=\"serverData.myVote\" (theVote)=\"userVotes($event)\"></vote>\n\n        <div *ngFor=\"#eachTweet of listOfTweets\">\n            <tweet [tHeading]=\"eachTweet.tHeading\" [tBody]=\"eachTweet.tBody\" [tImg]=\"eachTweet.tImg\" [tLikes]=\"eachTweet.tLikes\" [tUserLike]=\"eachTweet.tUserLike\"></tweet>\n        </div>\n        ",
-                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorites_component_1.FavoritesComponent, hearts_component_1.HeartComponent, votes_component_1.VotesComponent, tweets_component_1.TweetComponent],
+                        template: "\n        <zippy>\n            <div class=\"zippy-heading\">Heading1</div>\n            <div class=\"zippy-body\">Content1</div>\n        </zippy>\n        <zippy>\n            <div class=\"zippy-heading\">Heading2</div>\n            <div class=\"zippy-body\">Content2</div>\n        </zippy>\n        ",
+                        directives: [tweets_component_1.TweetComponent, section5switch_component_1.Section5Switch, section5ngcontent_component_1.Section5Content, zippy_component_1.ZippyComponent],
                         providers: [tweets_service_1.TweetService]
                     }), 
-                    __metadata('design:paramtypes', [tweets_service_1.TweetService])
+                    __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
             }());

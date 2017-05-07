@@ -1,48 +1,25 @@
 import {Component} from 'angular2/core';
-import {CoursesComponent} from './courses.component';
-import {AuthorsComponent} from './authors.component';
-import {FavoritesComponent} from './favorites.component'
-import {HeartComponent} from './hearts.component'
-import {VotesComponent} from './votes.component'
 import {TweetComponent} from './tweets.component'
 import {TweetService} from './tweets.service'
+import {Section5Switch} from './section5switch.component'
+import {Section5Content} from './section5ngcontent.component'
+import {ZippyComponent} from './zippy.component';
 
 @Component({
     selector: 'my-app',
-    template: `<h1>My First Angular 2 App</h1>
-        <span class="glyphicon glyphicon-star"></span>
-        <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
-        <heart></heart>
-        <vote [voteCount]="serverData.voteCount" [myVote]="serverData.myVote" (theVote)="userVotes($event)"></vote>
-
-        <div *ngFor="#eachTweet of listOfTweets">
-            <tweet [tHeading]="eachTweet.tHeading" [tBody]="eachTweet.tBody" [tImg]="eachTweet.tImg" [tLikes]="eachTweet.tLikes" [tUserLike]="eachTweet.tUserLike"></tweet>
-        </div>
+    template: `
+        <zippy>
+            <div class="zippy-heading">Heading1</div>
+            <div class="zippy-body">Content1</div>
+        </zippy>
+        <zippy>
+            <div class="zippy-heading">Heading2</div>
+            <div class="zippy-body">Content2</div>
+        </zippy>
         `,
-    directives: [CoursesComponent, AuthorsComponent, FavoritesComponent, HeartComponent, VotesComponent, TweetComponent],
+    directives: [TweetComponent, Section5Switch, Section5Content, ZippyComponent],
     providers: [TweetService]
 })
 export class AppComponent {
-    listOfTweets = [];
-    constructor(tweetService: TweetService){
-        this.listOfTweets = tweetService.getTweets();
-    }
-
-    post = {
-        title: "The Title",
-        isFavorite: true
-    };
-
-    serverData = {
-        voteCount: 10,
-        myVote: 0
-    };
-
-    onFavoriteChange($event){
-        console.log($event)
-    }
-
-    userVotes($event){
-        console.log($event);
-    }
+    
  }
