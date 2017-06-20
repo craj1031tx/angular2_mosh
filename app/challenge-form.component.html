@@ -1,0 +1,55 @@
+<form [ngFormModel]="passwordForm" (ngSubmit)="submitPasswordForm()" #currentForm="ngForm">
+    <div class="form-group">
+        <label for="currentPw">Current Password</label>
+        <input 
+            type="text" 
+            class="form-control"
+            ngControl="currentPw"
+            #currentPw="ngForm">
+        <div *ngIf="currentPw.errors && currentPw.touched">
+            <div *ngIf="currentPw.errors.required" class="alert alert-danger">
+                Please enter your current password.
+            </div>
+            <div *ngIf="currentPw.errors.invalidOldPw" class="alert alert-danger">
+                Invalid Old PW....
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="newPw">New Password</label>
+        <input 
+            type="text"     
+            class="form-control"
+            ngControl="newPw"
+            #newPw="ngForm"
+            minlength="4">
+        <div *ngIf="newPw.touched && newPw.errors">
+            <div *ngIf="newPw.errors.required" class="alert alert-danger">
+                Please enter a new password.
+            </div>
+            <div *ngIf="newPw.errors.pwLength" class="alert alert-danger">
+                Password should be at least {{newPw.errors.pwLength.reqLength}} characters...
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="confirmPw">Confirm Password</label>
+        <input 
+            type="text"     
+            class="form-control"
+            ngControl="confirmPw"
+            #confirmPw="ngForm">
+        <div *ngIf="confirmPw.errors && confirmPw.touched">
+            <div *ngIf="confirmPw.errors.required" class="alert alert-danger">
+                Please confirm your password.
+            </div>
+        </div>
+        <div *ngIf="confirmPw.touched && passwordForm.errors && passwordForm.errors.mismatch" class="alert alert-danger">
+                Password do not match.
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!passwordForm.valid">Change Password.</button>
+</form>

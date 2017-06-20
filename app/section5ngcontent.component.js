@@ -18,18 +18,24 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            Section5Content = (function () {
-                function Section5Content() {
-                }
-                Section5Content = __decorate([
-                    core_1.Component({
-                        selector: 'bs-panel',
-                        template: "\n        <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">\n                <ng-content select=\".bs-heading\"></ng-content>\n            </div>\n            <div class=\"panel-body\">\n                <ng-content select=\".bs-body\"></ng-content>\n            </div>\n        </div>\n    ",
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], Section5Content);
-                return Section5Content;
-            }());
+            let Section5Content = class Section5Content {
+            };
+            Section5Content = __decorate([
+                core_1.Component({
+                    selector: 'bs-panel',
+                    template: `
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ng-content select=".bs-heading"></ng-content>
+            </div>
+            <div class="panel-body">
+                <ng-content select=".bs-body"></ng-content>
+            </div>
+        </div>
+    `,
+                }), 
+                __metadata('design:paramtypes', [])
+            ], Section5Content);
             exports_1("Section5Content", Section5Content);
         }
     }

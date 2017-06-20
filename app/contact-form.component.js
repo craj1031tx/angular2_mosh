@@ -18,22 +18,19 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            ContactFormComponent = (function () {
-                function ContactFormComponent() {
-                }
-                ContactFormComponent.prototype.onSubmit = function (form) {
+            let ContactFormComponent = class ContactFormComponent {
+                onSubmit(form) {
                     console.log(form);
-                };
-                ContactFormComponent = __decorate([
-                    core_1.Component({
-                        selector: 'contact-form',
-                        templateUrl: 'app/contact-form.component.html',
-                        styles: ['.ng-touched.ng-invalid {border: 1px solid red;}']
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], ContactFormComponent);
-                return ContactFormComponent;
-            }());
+                }
+            };
+            ContactFormComponent = __decorate([
+                core_1.Component({
+                    selector: 'contact-form',
+                    templateUrl: 'app/contact-form.component.html',
+                    styles: ['.ng-touched.ng-invalid {border: 1px solid red;}']
+                }), 
+                __metadata('design:paramtypes', [])
+            ], ContactFormComponent);
             exports_1("ContactFormComponent", ContactFormComponent);
         }
     }

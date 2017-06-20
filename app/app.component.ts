@@ -1,17 +1,16 @@
 import {Component} from 'angular2/core';
-import {TweetComponent} from './tweets.component'
-import {TweetService} from './tweets.service'
-import {ContactFormComponent} from './contact-form.component'
-import {FrequencyComponent} from './frequency.component'
+import {SignupFormComponent} from './signup-form.component'
+import {ChallengeFormComponent} from './challenge-form.component'
+
 
 
 @Component({
     selector: 'my-app',
     template: `
-        <frequency></frequency>
+        <challenge-form></challenge-form>
         `,
-    directives: [TweetComponent, ContactFormComponent, FrequencyComponent],
-    providers: [TweetService]
+    directives: [SignupFormComponent, ChallengeFormComponent],
+    providers: []
 })
 export class AppComponent {
     

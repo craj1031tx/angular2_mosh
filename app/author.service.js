@@ -5,14 +5,11 @@ System.register([], function(exports_1, context_1) {
     return {
         setters:[],
         execute: function() {
-            AuthorService = (function () {
-                function AuthorService() {
-                }
-                AuthorService.prototype.getAuthors = function () {
+            class AuthorService {
+                getAuthors() {
                     return ["Author Name 1", "Author Name 2", "Author Name 3"];
-                };
-                return AuthorService;
-            }());
+                }
+            }
             exports_1("AuthorService", AuthorService);
         }
     }

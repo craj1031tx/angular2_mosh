@@ -18,22 +18,35 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            ZippyComponent = (function () {
-                function ZippyComponent() {
+            let ZippyComponent = class ZippyComponent {
+                constructor() {
                     this.expanded = false;
                 }
-                ZippyComponent.prototype.toggleExpanded = function () {
+                toggleExpanded() {
                     this.expanded = !this.expanded;
-                };
-                ZippyComponent = __decorate([
-                    core_1.Component({
-                        selector: 'zippy',
-                        template: "\n        <div class=\"panel panel-default\">\n            <div class=\"panel-heading\" (click)=\"toggleExpanded()\">\n                <ng-content select=\".zippy-heading\"></ng-content>\n                <i class=\"pull-right glyphicon\" \n                [ngClass]=\"{\n                    'glyphicon-chevron-down': !expanded,\n                    'glyphicon-chevron-up': expanded\n                }\"></i>\n            </div>\n            <div class=\"panel-body\" [hidden]=\"!expanded\">\n                <ng-content select=\".zippy-body\"></ng-content>\n            </div>\n        </div>\n    "
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], ZippyComponent);
-                return ZippyComponent;
-            }());
+                }
+            };
+            ZippyComponent = __decorate([
+                core_1.Component({
+                    selector: 'zippy',
+                    template: `
+        <div class="panel panel-default">
+            <div class="panel-heading" (click)="toggleExpanded()">
+                <ng-content select=".zippy-heading"></ng-content>
+                <i class="pull-right glyphicon" 
+                [ngClass]="{
+                    'glyphicon-chevron-down': !expanded,
+                    'glyphicon-chevron-up': expanded
+                }"></i>
+            </div>
+            <div class="panel-body" [hidden]="!expanded">
+                <ng-content select=".zippy-body"></ng-content>
+            </div>
+        </div>
+    `
+                }), 
+                __metadata('design:paramtypes', [])
+            ], ZippyComponent);
             exports_1("ZippyComponent", ZippyComponent);
         }
     }
