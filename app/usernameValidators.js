@@ -1,13 +1,13 @@
-System.register([], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register([], function(exports_1) {
     var UsernameValidators;
     return {
         setters:[],
         execute: function() {
-            class UsernameValidators {
-                static shouldBeUnique(control) {
-                    return new Promise((resolve, reject) => {
+            UsernameValidators = (function () {
+                function UsernameValidators() {
+                }
+                UsernameValidators.shouldBeUnique = function (control) {
+                    return new Promise(function (resolve, reject) {
                         setTimeout(function () {
                             if (control.value == "chetan")
                                 resolve({ shouldBeUnique: true });
@@ -15,13 +15,14 @@ System.register([], function(exports_1, context_1) {
                                 resolve(null);
                         }, 1000);
                     });
-                }
-                static cannotContainSpace(control) {
+                };
+                UsernameValidators.cannotContainSpace = function (control) {
                     if (control.value.indexOf(' ') >= 0)
                         return { cannotContainSpace: true };
                     return null;
-                }
-            }
+                };
+                return UsernameValidators;
+            })();
             exports_1("UsernameValidators", UsernameValidators);
         }
     }

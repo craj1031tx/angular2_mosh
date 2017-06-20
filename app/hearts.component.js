@@ -1,6 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +16,25 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            let HeartComponent = class HeartComponent {
-                constructor() {
+            HeartComponent = (function () {
+                function HeartComponent() {
                     this.count = 10;
                     this.isHeart = false;
                 }
-                heartClick() {
+                HeartComponent.prototype.heartClick = function () {
                     this.count += this.isHeart ? -1 : 1;
                     this.isHeart = !this.isHeart;
-                }
-            };
-            HeartComponent = __decorate([
-                core_1.Component({
-                    selector: 'heart',
-                    template: `
-        <span 
-            class="glyphicon glyphicon-heart" 
-            [class.highlighted]="isHeart"
-            (click)="heartClick()"
-        ></span>
-        {{count}}
-    `,
-                    styles: [`
-        .glyphicon-heart {color: #ccc; cursor: pointer;}
-        .highlighted {color: deeppink;}
-    `]
-                }), 
-                __metadata('design:paramtypes', [])
-            ], HeartComponent);
+                };
+                HeartComponent = __decorate([
+                    core_1.Component({
+                        selector: 'heart',
+                        template: "\n        <span \n            class=\"glyphicon glyphicon-heart\" \n            [class.highlighted]=\"isHeart\"\n            (click)=\"heartClick()\"\n        ></span>\n        {{count}}\n    ",
+                        styles: ["\n        .glyphicon-heart {color: #ccc; cursor: pointer;}\n        .highlighted {color: deeppink;}\n    "]
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], HeartComponent);
+                return HeartComponent;
+            })();
             exports_1("HeartComponent", HeartComponent);
         }
     }

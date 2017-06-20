@@ -1,12 +1,12 @@
-System.register([], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register([], function(exports_1) {
     var pwValidators;
     return {
         setters:[],
         execute: function() {
-            class pwValidators {
-                static pwLength(control) {
+            pwValidators = (function () {
+                function pwValidators() {
+                }
+                pwValidators.pwLength = function (control) {
                     var setLength = 6;
                     if (control.value == "") {
                         return null;
@@ -14,8 +14,8 @@ System.register([], function(exports_1, context_1) {
                     if (control.value.length < setLength) {
                         return { pwLength: { reqLength: setLength } };
                     }
-                }
-                static confirmation(group) {
+                };
+                pwValidators.confirmation = function (group) {
                     var test1 = group.find("newPw").value;
                     var test2 = group.find("confirmPw").value;
                     if (test1 == '' || test2 == '') {
@@ -24,8 +24,9 @@ System.register([], function(exports_1, context_1) {
                     if (test1 != test2) {
                         return { 'mismatch': true };
                     }
-                }
-            }
+                };
+                return pwValidators;
+            })();
             exports_1("pwValidators", pwValidators);
         }
     }

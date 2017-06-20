@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/common', './pwValidators'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/common', './pwValidators'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -24,8 +22,8 @@ System.register(['angular2/core', 'angular2/common', './pwValidators'], function
                 pwValidators_1 = pwValidators_1_1;
             }],
         execute: function() {
-            let ChallengeFormComponent = class ChallengeFormComponent {
-                constructor(formzBuilder) {
+            ChallengeFormComponent = (function () {
+                function ChallengeFormComponent(formzBuilder) {
                     this.passwordForm = formzBuilder.group({
                         currentPw: ['', common_1.Validators.compose([
                                 common_1.Validators.required
@@ -40,7 +38,7 @@ System.register(['angular2/core', 'angular2/common', './pwValidators'], function
                     }, { validator: pwValidators_1.pwValidators.confirmation });
                 }
                 ;
-                submitPasswordForm() {
+                ChallengeFormComponent.prototype.submitPasswordForm = function () {
                     var tempOldPassword = this.passwordForm.find("currentPw");
                     console.log(tempOldPassword);
                     if (tempOldPassword.value != "abc123") {
@@ -50,15 +48,16 @@ System.register(['angular2/core', 'angular2/common', './pwValidators'], function
                         alert("Congrats! pw has been changed....");
                     }
                     ;
-                }
-            };
-            ChallengeFormComponent = __decorate([
-                core_1.Component({
-                    selector: 'challenge-form',
-                    templateUrl: 'app/challenge-form.component.html'
-                }), 
-                __metadata('design:paramtypes', [common_1.FormBuilder])
-            ], ChallengeFormComponent);
+                };
+                ChallengeFormComponent = __decorate([
+                    core_1.Component({
+                        selector: 'challenge-form',
+                        templateUrl: 'app/challenge-form.component.html'
+                    }), 
+                    __metadata('design:paramtypes', [common_1.FormBuilder])
+                ], ChallengeFormComponent);
+                return ChallengeFormComponent;
+            })();
             exports_1("ChallengeFormComponent", ChallengeFormComponent);
             ;
         }

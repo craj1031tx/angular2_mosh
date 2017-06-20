@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/common', './usernameValidators'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/common', './usernameValidators'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -24,8 +22,8 @@ System.register(['angular2/core', 'angular2/common', './usernameValidators'], fu
                 usernameValidators_1 = usernameValidators_1_1;
             }],
         execute: function() {
-            let SignupFormComponent = class SignupFormComponent {
-                constructor(fBuilder) {
+            SignupFormComponent = (function () {
+                function SignupFormComponent(fBuilder) {
                     this.myForm = fBuilder.group({
                         username: ['', common_1.Validators.compose([
                                 common_1.Validators.required,
@@ -34,21 +32,22 @@ System.register(['angular2/core', 'angular2/common', './usernameValidators'], fu
                         password: ['', common_1.Validators.required]
                     });
                 }
-                signup() {
+                SignupFormComponent.prototype.signup = function () {
                     //var result = authService.login(this.myForm.value)
                     this.myForm.find('username').setErrors({
                         invalidLogin: true
                     });
                     console.log(this.myForm.value);
-                }
-            };
-            SignupFormComponent = __decorate([
-                core_1.Component({
-                    selector: 'signup-form',
-                    templateUrl: 'app/signup-form.component.html'
-                }), 
-                __metadata('design:paramtypes', [common_1.FormBuilder])
-            ], SignupFormComponent);
+                };
+                SignupFormComponent = __decorate([
+                    core_1.Component({
+                        selector: 'signup-form',
+                        templateUrl: 'app/signup-form.component.html'
+                    }), 
+                    __metadata('design:paramtypes', [common_1.FormBuilder])
+                ], SignupFormComponent);
+                return SignupFormComponent;
+            })();
             exports_1("SignupFormComponent", SignupFormComponent);
         }
     }
