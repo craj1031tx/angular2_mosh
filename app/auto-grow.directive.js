@@ -18,37 +18,36 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            AutoGrowDirective = (function () {
+            let AutoGrowDirective = class AutoGrowDirective {
                 //underline first variable name indicates that it is private. instead, we are
                 //using the private field inside of the constructor paramters. this is just another option...
                 //_el: ElementRef;
-                function AutoGrowDirective(el, renderer) {
+                constructor(el, renderer) {
                     this.el = el;
                     this.renderer = renderer;
                 }
-                AutoGrowDirective.prototype.onFocus = function () {
+                onFocus() {
                     //arg1: element on which your applying style....nativeElement is the actual element that is selected.
                     //arg2: name of the style (key)
                     //arg3: value of the style
                     this.renderer.setElementStyle(this.el.nativeElement, 'width', '200');
-                };
-                AutoGrowDirective.prototype.onBlur = function () {
+                }
+                onBlur() {
                     this.renderer.setElementStyle(this.el.nativeElement, 'width', '120');
-                };
-                AutoGrowDirective = __decorate([
-                    core_1.Directive({
-                        //square bracket selector refers to an elements attribute! plain text referes to an element tag.
-                        selector: '[autoGrow]',
-                        //subsribe to events using host key
-                        host: {
-                            '(focus)': 'onFocus()',
-                            '(blur)': 'onBlur()'
-                        }
-                    }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer])
-                ], AutoGrowDirective);
-                return AutoGrowDirective;
-            }());
+                }
+            };
+            AutoGrowDirective = __decorate([
+                core_1.Directive({
+                    //square bracket selector refers to an elements attribute! plain text referes to an element tag.
+                    selector: '[autoGrow]',
+                    //subsribe to events using host key
+                    host: {
+                        '(focus)': 'onFocus()',
+                        '(blur)': 'onBlur()'
+                    }
+                }), 
+                __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer])
+            ], AutoGrowDirective);
             exports_1("AutoGrowDirective", AutoGrowDirective);
         }
     }

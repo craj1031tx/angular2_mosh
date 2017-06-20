@@ -18,20 +18,19 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            FrequencyComponent = (function () {
-                function FrequencyComponent() {
+            let FrequencyComponent = class FrequencyComponent {
+                constructor() {
                     this.frequencyList = ['Daily', 'Weekly', 'Monthly'];
                 }
-                FrequencyComponent = __decorate([
-                    core_1.Component({
-                        selector: 'frequency',
-                        templateUrl: 'app/frequency-form.component.html',
-                        styles: ['ng-touched.ng-invald {border:2px solid red;}']
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], FrequencyComponent);
-                return FrequencyComponent;
-            }());
+            };
+            FrequencyComponent = __decorate([
+                core_1.Component({
+                    selector: 'frequency',
+                    templateUrl: 'app/frequency-form.component.html',
+                    styles: ['ng-touched.ng-invald {border:2px solid red;}']
+                }), 
+                __metadata('design:paramtypes', [])
+            ], FrequencyComponent);
             exports_1("FrequencyComponent", FrequencyComponent);
         }
     }

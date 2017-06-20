@@ -18,48 +18,53 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            VotesComponent = (function () {
-                function VotesComponent() {
+            let VotesComponent = class VotesComponent {
+                constructor() {
                     this.voteCount = 0;
                     this.myVote = 0;
                     this.theVote = new core_1.EventEmitter();
                 }
-                VotesComponent.prototype.upvote = function () {
+                upvote() {
                     if (this.myVote == 1) {
                         return;
                     }
                     this.myVote++;
                     this.theVote.emit({ myVote: this.myVote });
-                };
-                VotesComponent.prototype.downvote = function () {
+                }
+                downvote() {
                     if (this.myVote == -1) {
                         return;
                     }
                     this.myVote--;
                     this.theVote.emit({ myVote: this.myVote });
-                };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Object)
-                ], VotesComponent.prototype, "voteCount", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Object)
-                ], VotesComponent.prototype, "myVote", void 0);
-                __decorate([
-                    core_1.Output(), 
-                    __metadata('design:type', Object)
-                ], VotesComponent.prototype, "theVote", void 0);
-                VotesComponent = __decorate([
-                    core_1.Component({
-                        selector: 'vote',
-                        template: "\n    <div class=\"voteWrapper\" style=\"width: 20px;\">\n    <span class=\"glyphicon glyphicon-menu-up\" (click)=\"upvote()\" [class.voteActive]=\"myVote==1\"></span>\n    <h4>{{voteCount + myVote}}</h4>\n    <span class=\"glyphicon glyphicon-menu-down\" (click)=\"downvote()\" [class.voteActive]=\"myVote==-1\"></span>\n    </div>\n    ",
-                        styles: [".voteActive {color: orange;}", ".glyphicon {cursor: pointer;}", ".voteWrapper {text-align: center;}"]
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], VotesComponent);
-                return VotesComponent;
-            }());
+                }
+            };
+            __decorate([
+                core_1.Input(), 
+                __metadata('design:type', Object)
+            ], VotesComponent.prototype, "voteCount", void 0);
+            __decorate([
+                core_1.Input(), 
+                __metadata('design:type', Object)
+            ], VotesComponent.prototype, "myVote", void 0);
+            __decorate([
+                core_1.Output(), 
+                __metadata('design:type', Object)
+            ], VotesComponent.prototype, "theVote", void 0);
+            VotesComponent = __decorate([
+                core_1.Component({
+                    selector: 'vote',
+                    template: `
+    <div class="voteWrapper" style="width: 20px;">
+    <span class="glyphicon glyphicon-menu-up" (click)="upvote()" [class.voteActive]="myVote==1"></span>
+    <h4>{{voteCount + myVote}}</h4>
+    <span class="glyphicon glyphicon-menu-down" (click)="downvote()" [class.voteActive]="myVote==-1"></span>
+    </div>
+    `,
+                    styles: [".voteActive {color: orange;}", ".glyphicon {cursor: pointer;}", ".voteWrapper {text-align: center;}"]
+                }), 
+                __metadata('design:paramtypes', [])
+            ], VotesComponent);
             exports_1("VotesComponent", VotesComponent);
         }
     }
