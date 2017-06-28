@@ -1,15 +1,16 @@
-System.register([], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register([], function(exports_1) {
     var AuthorService;
     return {
         setters:[],
         execute: function() {
-            class AuthorService {
-                getAuthors() {
-                    return ["Author Name 1", "Author Name 2", "Author Name 3"];
+            AuthorService = (function () {
+                function AuthorService() {
                 }
-            }
+                AuthorService.prototype.getAuthors = function () {
+                    return ["Author Name 1", "Author Name 2", "Author Name 3"];
+                };
+                return AuthorService;
+            })();
             exports_1("AuthorService", AuthorService);
         }
     }

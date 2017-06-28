@@ -1,6 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,29 +16,19 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            let Section5Switch = class Section5Switch {
-                constructor() {
+            Section5Switch = (function () {
+                function Section5Switch() {
                     this.currentView = 'map';
                 }
-            };
-            Section5Switch = __decorate([
-                core_1.Component({
-                    selector: 'switch',
-                    template: `
-    <div>
-        <ul class="nav nav-pills">
-            <li [class.active]="currentView=='map'"><a (click)="currentView='map'">Map View</a></li>
-            <li [class.active]="currentView=='list'"><a (click)="currentView='list'">List View</a></li>
-        </ul>
-    </div>
-    <div [ngSwitch]="currentView">
-        <template [ngSwitchWhen]="'map'">This is map content...</template>
-        <template [ngSwitchWhen]="'list'">This is list content...</template>
-    </div>
-    `
-                }), 
-                __metadata('design:paramtypes', [])
-            ], Section5Switch);
+                Section5Switch = __decorate([
+                    core_1.Component({
+                        selector: 'switch',
+                        template: "\n    <div>\n        <ul class=\"nav nav-pills\">\n            <li [class.active]=\"currentView=='map'\"><a (click)=\"currentView='map'\">Map View</a></li>\n            <li [class.active]=\"currentView=='list'\"><a (click)=\"currentView='list'\">List View</a></li>\n        </ul>\n    </div>\n    <div [ngSwitch]=\"currentView\">\n        <template [ngSwitchWhen]=\"'map'\">This is map content...</template>\n        <template [ngSwitchWhen]=\"'list'\">This is list content...</template>\n    </div>\n    "
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], Section5Switch);
+                return Section5Switch;
+            })();
             exports_1("Section5Switch", Section5Switch);
         }
     }

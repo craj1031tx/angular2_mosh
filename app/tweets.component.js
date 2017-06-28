@@ -1,6 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,60 +16,47 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            let TweetComponent = class TweetComponent {
-                toggleUserFave() {
+            TweetComponent = (function () {
+                function TweetComponent() {
+                }
+                TweetComponent.prototype.toggleUserFave = function () {
                     if (this.tUserLike == 0) {
                         this.tUserLike = 1;
                     }
                     else {
                         this.tUserLike = 0;
                     }
-                }
-            };
-            __decorate([
-                core_1.Input(), 
-                __metadata('design:type', Object)
-            ], TweetComponent.prototype, "tHeading", void 0);
-            __decorate([
-                core_1.Input(), 
-                __metadata('design:type', Object)
-            ], TweetComponent.prototype, "tBody", void 0);
-            __decorate([
-                core_1.Input(), 
-                __metadata('design:type', Object)
-            ], TweetComponent.prototype, "tImg", void 0);
-            __decorate([
-                core_1.Input(), 
-                __metadata('design:type', Object)
-            ], TweetComponent.prototype, "tLikes", void 0);
-            __decorate([
-                core_1.Input(), 
-                __metadata('design:type', Object)
-            ], TweetComponent.prototype, "tUserLike", void 0);
-            TweetComponent = __decorate([
-                core_1.Component({
-                    selector: 'tweet',
-                    template: `
-        <div class="media">
-            <div class="media-left">
-            <a href="#">
-            <img class="media-object" src={{tImg}}>
-            </a>
-            </div>
-        <div class="media-body">
-            <h4 class="media-heading">{{tHeading}}</h4>
-            <h5>{{tBody}}</h5>
-            <h5>
-                {{tLikes + tUserLike}} 
-                <span class="glyphicon glyphicon-heart" [class.userFave]="tUserLike==1" (click)="toggleUserFave()"></span>
-            </h5>
-        </div>
-        </div>
-    `,
-                    styles: [".userFave {color:deeppink;}"]
-                }), 
-                __metadata('design:paramtypes', [])
-            ], TweetComponent);
+                };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "tHeading", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "tBody", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "tImg", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "tLikes", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "tUserLike", void 0);
+                TweetComponent = __decorate([
+                    core_1.Component({
+                        selector: 'tweet',
+                        template: "\n        <div class=\"media\">\n            <div class=\"media-left\">\n            <a href=\"#\">\n            <img class=\"media-object\" src={{tImg}}>\n            </a>\n            </div>\n        <div class=\"media-body\">\n            <h4 class=\"media-heading\">{{tHeading}}</h4>\n            <h5>{{tBody}}</h5>\n            <h5>\n                {{tLikes + tUserLike}} \n                <span class=\"glyphicon glyphicon-heart\" [class.userFave]=\"tUserLike==1\" (click)=\"toggleUserFave()\"></span>\n            </h5>\n        </div>\n        </div>\n    ",
+                        styles: [".userFave {color:deeppink;}"]
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], TweetComponent);
+                return TweetComponent;
+            })();
             exports_1("TweetComponent", TweetComponent);
         }
     }
