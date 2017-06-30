@@ -9,7 +9,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1;
-    var ContactComponent;
+    var RootComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -19,27 +19,21 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                 router_1 = router_1_1;
             }],
         execute: function() {
-            ContactComponent = (function () {
-                function ContactComponent(_router) {
-                    this._router = _router;
+            RootComponent = (function () {
+                function RootComponent() {
+                    this.times = [{ year: 2010, month: 1 }, { year: 2011, month: 2 }, { year: 2012, month: 3 }];
                 }
-                ContactComponent.prototype.onSubmit = function (form) {
-                    console.log(form);
-                    this._router.navigate(['Albums']);
-                };
-                ContactComponent.prototype.routerCanDeactivate = function (next, previous) {
-                    return confirm("Are you sure?");
-                };
-                ContactComponent = __decorate([
+                RootComponent = __decorate([
                     core_1.Component({
-                        templateUrl: '/app/contact.component.html'
+                        template: "\n    <h1>Hello</h1>\n    <h2>Please select from the following options:</h2>\n    <div *ngFor=\"#t of times\">  \n        <h3>\n            <a [routerLink]=\"['Time', { year: t.year, month: t.month }]\">\n                {{t.year}}/{{t.month}}\n            </a>\n        </h3>\n    </div>\n\n    ",
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router])
-                ], ContactComponent);
-                return ContactComponent;
+                    __metadata('design:paramtypes', [])
+                ], RootComponent);
+                return RootComponent;
             })();
-            exports_1("ContactComponent", ContactComponent);
+            exports_1("RootComponent", RootComponent);
         }
     }
 });
-//# sourceMappingURL=contact.component.js.map
+//# sourceMappingURL=root.component.js.map
